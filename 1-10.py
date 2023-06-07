@@ -97,7 +97,7 @@ def diffSumSquare(n):
 # Do this for every number up to 1000000 and only primes will remain.
 def SieveOfEratosthenes():
  
-    n = 1000000
+    n = 2000000
     primes = []
     prime = [True for i in range(n + 1)]
      
@@ -114,9 +114,9 @@ def SieveOfEratosthenes():
     for p in range(2, n + 1):
         if prime[p]:
             primes.append(p)
-    return primes[10000]
+    return primes
 
-# print(SieveOfEratosthenes())
+# print(SieveOfEratosthenes()[10000])
 # The four adjacent digits in the 1000-digit number that have the greatest product
 # are 9x9x8x9 = 5832.
 
@@ -162,6 +162,22 @@ def thirteenProduct():
 # the product abc.
 
 # Euclid's formula: a = m² - n², b = 2mn, c = m² + n²
-# def pythagoreanTriplet():
+# 2m² + 2mn = 1000
+# m² + mn = 500
+# m(m + n) = 500
+def pythagoreanTriplet():
+    for m in range(1, 32):
+        for n in range(1, m):
+            if m*(m+n) == 500:
+                return ((m**2-n**2)*(2*m*n)*(m**2+n**2))
 
+# print(pythagoreanTriplet())
+
+# The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+# Find the sum of all the primes before two million.
+
+def primesBelow2m():
+    return sum(SieveOfEratosthenes())
+
+# print(primesBelow2m())
 
